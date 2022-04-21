@@ -52,9 +52,9 @@ jobs:
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
-          id: deploy-to-webapp
-          with:
-            app-name: 'joshprole'
-            slot-name: 'Production'
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-            package: .
+        id: deploy-to-webapp
+        with:
+          app-name: 'joshprole'
+          slot-name: 'Production'
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          package: .
