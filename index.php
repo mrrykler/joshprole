@@ -3,6 +3,6 @@
     <title>Josh Prole</title>
   </head>
   <body>
-    <h1>Josh Prole.</h1>
+    <h1>Josh Prole</h1>
   </body>
 </html>
