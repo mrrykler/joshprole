@@ -3,7 +3,7 @@
     <title>Josh Prole</title>
   </head>
   <body>
-    <h1>Amelia Blasingame</h1>
-    <p>abcdefghijklmnopqrstuvwxyz</p>
+    <h1>Put cool things here</h1>
+    <p>not just h1 and p tags</p>
   </body>
 </html>
