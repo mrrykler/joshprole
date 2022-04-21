@@ -49,7 +49,12 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: php-app
-
+      - name: Login to AzureStack with CLI
+        uses: azure/login@releases/v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          environment: 'AzureStack'
+          enable-AzPSSession: false
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
