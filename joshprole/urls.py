@@ -18,5 +18,5 @@ from django.urls import path
 from .views import index
 
 urlpatterns = [
-    path('admin/', index)
+    path('', index)
 ]
