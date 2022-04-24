@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-   ('myapp', os.path.join(BASE_DIR, 'myapp', 'static')),
+   ('myapp', os.path.join(BASE_DIR, 'joshprole', 'static')),
 )
 STATICFILES_FINDERS = (
   'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -62,7 +62,7 @@ ROOT_URLCONF = 'joshprole.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR +'/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
