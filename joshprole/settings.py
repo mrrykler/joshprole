@@ -66,7 +66,7 @@ TEMPLATES = [
         },
     },
 ]
-
+STATICFILES_DIRS = [BASE_DIR / 'templates']
 WSGI_APPLICATION = 'joshprole.wsgi.application'
 
 
