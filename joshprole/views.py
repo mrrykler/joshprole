@@ -1,3 +1,7 @@
 from django.http import HttpResponse
-def welcome(request):
-  return HttpResponse("Hello World")
+from django.template import loader
+
+def index(request):
+    template = loader.get_template('joshprole/index.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
