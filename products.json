@@ -1,0 +1,14 @@
+[
+    {"name":"banana","type":"W","price":0.49},
+    {"name":"Frosted Flakes","type":"Q","price":3.99},
+    {"name":"Toaster Pastries","type":"Q","price":2.79},
+    {"name":"apple","type":"W","price":0.49},
+    {"name":"White Rice","type":"Q","price":1.99},
+    {"name":"Chicken Nuggets","type":"Q","price":5.99},
+    {"name":"prime rib","type":"W","price":7.49},
+    {"name":"Pepper","type":"Q","price":1.99},
+    {"name":"Salt","type":"Q","price":1.79},
+    {"name":"Orange","type":"W","price":0.89},
+    {"name":"Napkins","type":"Q","price":2.69},
+    {"name":"Paper Towels","type":"Q","price":6.99}
+]
