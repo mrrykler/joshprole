@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import welcome
+from .views import index
 
 urlpatterns = [
-    path('', welcome)
+    path('', index)
 ]
