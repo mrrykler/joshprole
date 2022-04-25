@@ -10,5 +10,11 @@
     {"name":"Salt","type":"Q","price":1.79},
     {"name":"Orange","type":"W","price":0.89},
     {"name":"Napkins","type":"Q","price":2.69},
-    {"name":"Paper Towels","type":"Q","price":6.99}
+    {"name":"Paper Towels","type":"Q","price":6.99},
+    {"name":"Potato Chips","type":"Q","price":2.69},
+    {"name":"Salsa","type":"Q","price":1.99},
+    {"name":"Cola","type":"Q","price":4.79},
+    {"name":"Beef Jerky","type":"Q","price":6.99},
+    {"name":"Peanuts","type":"Q","price":0.69},
+    {"name":"Egg Rolls","type":"Q","price":3.09}
 ]
