@@ -18,6 +18,8 @@ def genvoice():
         if I[-1]['type']=="W" and I[-1]["QTY"]>0:
             I[-1]["QTY"]+=Decimal(f"{random():.2f}")
         I[-1]["QTY"]=float(I[-1]["QTY"])
+        if not I[-1]["QTY"]%1:
+            I[-1]["QTY"] = int(I[-1]["QTY"])
     I = [p for p in I if p['QTY']>0]
     qty = sum(p['QTY'] for p in I if p['type']=='Q')+sum(1 for p in I if p['type']=='W')
     cost = float(sum(Decimal(f"{p['price']*p['QTY']:.2f}") for p in I))
