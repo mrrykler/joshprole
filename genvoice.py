@@ -21,8 +21,10 @@ def genvoice():
     qty = sum(p['QTY'] for p in I if p['type']=='Q')+sum(1 for p in I if p['type']=='W')
     cost = sum(Decimal(f"{p['price']*p['QTY']:.2f}") for p in I)
     td = choices(list(range(3,49)),weights=[300,60,30,10,5,3]+[1]*40)[0]
+    print(td)
     while 7>(datetime.datetime.now()+datetime.timedelta(hours=td)).hour>17:
         td+=1
+    print(td)
     dt = datetime.datetime.now()+datetime.timedelta(hours=td)
     slot = dt.hour
     dt = dt.strftime("%Y-%m-%d")
