@@ -1,20 +1,19 @@
-from psycopg2 import connect
 from random import random, randint, choices
 from decimal import Decimal
 import datetime
 import json
+import os
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'joshprole.settings')
+import django
+django.setup()
+from dummy.models import Invoice,Product
 
-
-def retrieve_products():
-    with connect("host=joshprole-db.postgres.database.azure.com dbname=postgres user=mrrykler password=Mr.Ryk73r7955") as conn:
-        cur = conn.cursor()
-        cur.execute("SELECT * FROM products")
-        return [p[1:] for p in cur]
-PRODUCT_BUFFER = retrieve_products()
+PRODUCT_BUFFER = [i.todict() for i in Product.objects.all()]
 def genvoice():
     I = []
     for p in PRODUCT_BUFFER:
-        I.append({"name":p[0],"type":p[1],"price":float(p[2]),"QTY":Decimal(int(B:=randint(1,7)>5)+randint(0,5)*int(B))})
+        p["QTY"] = Decimal(int(B:=randint(1,7)>5)+randint(0,5)*int(B))
+        I.append(dict(**p))
         if I[-1]['type']=="W" and I[-1]["QTY"]>0:
             I[-1]["QTY"]+=Decimal(f"{random():.2f}")
         I[-1]["QTY"]=float(I[-1]["QTY"])
@@ -25,9 +24,10 @@ def genvoice():
     cost = float(sum(Decimal(f"{p['price']*p['QTY']:.2f}") for p in I))
     td = choices(list(range(3,49)),weights=[300,60,30,10,5,3]+[1]*40)[0]
     rn = lambda : datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5)))
-    while 7>(rn()+datetime.timedelta(hours=td)).hour>17:
+    while (rn()+datetime.timedelta(hours=td)).hour not in range(7,18):
         td+=1
     dt = rn()+datetime.timedelta(hours=td)
     slot = dt.hour
-    dt = dt.strftime("%Y-%m-%d")
-    return {"cost":cost,"qty":qty,"purchase":I,"o_slot":slot,"o_date":dt}
+    D = {"cost":cost,"itemcount":qty,"purchase":I,"slot":slot,"odate":dt}
+    Invoice.objects.create(cost=cost,odate=dt,purchase=json.dumps(I),slot=slot,itemcount=qty)
+    print(*[i.todict() for i in Invoice.objects.all()],sep="\n")

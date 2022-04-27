@@ -5,6 +5,5 @@ from django.template import loader
 # Create your views here.
 
 def invoices(request):
-    template = loader.get_template('dummy/invoices.html')
     context = {}
-    return HttpResponse(template.render(context, request))
+    return render(request, 'dummy/invoices.html', context)
