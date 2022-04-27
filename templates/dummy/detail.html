@@ -1,0 +1,24 @@
+<html>
+<head>
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'joshprole/style.css' %}">
+    <title>Order {{ inv.id }}</title>
+</head>
+<body>
+<h1>Order {{ inv.id }}</h1>
+<table>
+<tr>
+    <td>Description</td>
+    <td>Price</td>
+    <td>Qty</td>
+</tr>
+{% for prod in inv.purchase %}
+<tr>
+    <td>{{ prod.name }}</td>
+    <td>{{ prod.price }}</td>
+    <td>{{ prod.QTY }}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
