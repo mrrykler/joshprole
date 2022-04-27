@@ -6,5 +6,19 @@
 </head>
 <body>
 <h1>Invoices</h1>
+<table>
+<tr>
+    <td>Order Number</td>
+    <td>Date/Time</td>
+    <td>Items/Cost</td>
+</tr>
+{% for inv in invoice_list %}
+<tr>
+    <td>{{ inv.id }}</td>
+    <td>{{ inv.odate}} {{ inv.slot}}:00</td>
+    <td>{{ inv.itemcount}}/${{ inv.cost }}</td>
+</tr>
+{% endfor %}
+</table>
 </body>
 </html>

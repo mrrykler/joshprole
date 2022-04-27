@@ -10,7 +10,7 @@ class Invoice(models.Model):
     odate = models.DateField()
     purchase = models.JSONField()
     def todict(self):
-        return {"itemcount":self.itemcount,"cost":self.cost,"slot":self.slot,"odate":self.odate,"purchase":self.purchase}
+        return {"id":self.id,"itemcount":self.itemcount,"cost":self.cost,"slot":self.slot,"odate":self.odate,"purchase":self.purchase}
     def __str__(self):
         return str(self.todict())
 
