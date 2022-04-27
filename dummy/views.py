@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import *
 from datetime import datetime
+import json
 # Create your views here.
 
 def invoices(request):
@@ -14,5 +15,7 @@ def invoices(request):
     return render(request, 'dummy/invoices.html', context)
 def detail(request,order_num):
     dv = get_object_or_404(Invoice,id=order_num)
+    dv = dv.todict()
+    dv['purchase']=json.load(dv['purchase'])
     context = {"inv":dv.todict()}
     return render(request, 'dummy/detail.html', context)
