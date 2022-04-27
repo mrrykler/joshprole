@@ -17,5 +17,5 @@ def detail(request,order_num):
     dv = get_object_or_404(Invoice,id=order_num)
     dv = dv.todict()
     dv['purchase']=json.loads(dv['purchase'])
-    context = {"inv":dv.todict()}
+    context = {"inv":dv}
     return render(request, 'dummy/detail.html', contsext)
