@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from models import *
+from .models import *
 # Create your views here.
 
 def invoices(request):
