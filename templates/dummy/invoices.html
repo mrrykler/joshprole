@@ -15,7 +15,7 @@
 {% for inv in invoice_list %}
 <tr>
     <td>{{ inv.id }}</td>
-    <td>{{ inv.sortdate|date:'d/m/Y g:00A'}}</td>
+    <td>{{ inv.sortdate|date:'m/d/Y g:00A'|lower}}</td>
     <td>{{ inv.itemcount}}/${{ inv.cost }}</td>
 </tr>
 {% endfor %}
