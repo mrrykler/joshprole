@@ -13,7 +13,7 @@ def genvoice():
     I = []
     for p in PRODUCT_BUFFER:
         p["QTY"] = Decimal(int(B:=randint(1,7)>5)+randint(0,5)*int(B))
-        I.append(dict(**p))
+        I.append(p)
         if I[-1]['type']=="W" and I[-1]["QTY"]>0:
             I[-1]["QTY"]+=Decimal(f"{random():.2f}")
         I[-1]["QTY"]=float(I[-1]["QTY"])
@@ -28,4 +28,4 @@ def genvoice():
         td+=1
     dt = rn()+datetime.timedelta(hours=td)
     Invoice.objects.create(cost=cost,odate=dt,purchase=json.dumps(I),slot=dt.hour,itemcount=qty)
-    print(*[i.todict() for i in Invoice.objects.all()],sep="\n")
+    print(Invoice.objects.all()[-1])

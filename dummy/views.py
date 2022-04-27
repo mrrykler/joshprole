@@ -1,9 +1,9 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
-from .models import *
+from .models import Invoice
 from datetime import datetime
-import json
+from json import loads
 # Create your views here.
 
 def invoices(request):
@@ -16,6 +16,6 @@ def invoices(request):
 def detail(request,order_num):
     dv = get_object_or_404(Invoice,id=order_num)
     dv = dv.todict()
-    dv['purchase']=json.loads(dv['purchase'])
+    dv['purchase']=loads(dv['purchase'])
     context = {"inv":dv}
     return render(request, 'dummy/detail.html', context)
