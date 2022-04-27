@@ -24,10 +24,9 @@ def genvoice():
     cost = float(sum(Decimal(f"{p['price']*p['QTY']:.2f}") for p in I))
     td = choices(list(range(3,49)),weights=[300,60,30,10,5,3]+[1]*40)[0]
     rn = lambda : datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5)))
-    while (rn()+datetime.timedelta(hours=td)).hour not in range(7,18):
+    while (rn()+datetime.timedelta(hours=td)).hour not in range(8,18):
         td+=1
     dt = rn()+datetime.timedelta(hours=td)
     slot = dt.hour
-    D = {"cost":cost,"itemcount":qty,"purchase":I,"slot":slot,"odate":dt}
     Invoice.objects.create(cost=cost,odate=dt,purchase=json.dumps(I),slot=slot,itemcount=qty)
     print(*[i.todict() for i in Invoice.objects.all()],sep="\n")
