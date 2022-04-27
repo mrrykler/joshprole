@@ -15,7 +15,7 @@
 {% for prod in inv.purchase %}
 <tr>
     <td>{{ prod.name }}</td>
-    <td>{{ prod.price }}{% if prod.type == "W" %} / lb.{% endif %}</td>
+    <td>{{ prod.price }}{% if prod.type == "W" %}/lb.{% else %} ea.{% endif %}</td>
     <td>{{ prod.QTY }}{% if prod.type == "W" %} lbs.{% endif %}</td>
 </tr>
 {% endfor %}
