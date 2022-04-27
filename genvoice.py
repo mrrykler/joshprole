@@ -27,6 +27,5 @@ def genvoice():
     while (rn()+datetime.timedelta(hours=td)).hour not in range(8,18):
         td+=1
     dt = rn()+datetime.timedelta(hours=td)
-    slot = dt.hour
-    Invoice.objects.create(cost=cost,odate=dt,purchase=json.dumps(I),slot=slot,itemcount=qty)
+    Invoice.objects.create(cost=cost,odate=dt,purchase=json.dumps(I),slot=dt.hour,itemcount=qty)
     print(*[i.todict() for i in Invoice.objects.all()],sep="\n")
