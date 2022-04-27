@@ -28,4 +28,4 @@ def genvoice():
         td+=1
     dt = rn()+datetime.timedelta(hours=td)
     Invoice.objects.create(cost=cost,odate=dt,purchase=json.dumps(I),slot=dt.hour,itemcount=qty)
-    print(Invoice.objects.all()[-1])
+    print(Invoice.objects.all().last())

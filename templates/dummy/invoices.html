@@ -14,7 +14,7 @@
 </tr>
 {% for inv in invoice_list %}
 <tr>
-    <td>{{ inv.id }}</td>
+    <td><a href="{% url 'dummy:detail' inv.id %}">{{ inv.id }}</a></td>
     <td>{{ inv.sortdate|date:'m/d/Y g:00A'|lower}}</td>
     <td>{{ inv.itemcount}}/${{ inv.cost }}</td>
 </tr>
