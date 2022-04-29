@@ -7,7 +7,8 @@ body {
     position: sticky;
     top: 0;
     bottom: 0;
-    width: 100%;
+    width: 105%;
+    left: -1%;
     height: 5%;
     padding: 10;
     background-color: #ffcfaa;
@@ -18,7 +19,7 @@ body {
     font-weight: bold;
 }
 #cent {
-    margin: 0% 15%;
+    width: 100%;
     background-color: #ffbeaa;
 }
 .section {
