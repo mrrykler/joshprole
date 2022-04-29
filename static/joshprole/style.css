@@ -22,6 +22,7 @@ body {
 }
 #cent {
     width: 100%;
+    left: 0px;
     padding: 0px;
     background-color: #ffbeaa;
 }
