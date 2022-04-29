@@ -8,7 +8,7 @@ body {
 }
 #upper {
     position: sticky;
-    top: 0;
+    top: 0px;
     width: 100%;
     left: 0px;
     height: 5%;
@@ -33,6 +33,7 @@ body {
 .heading {
     font-size:3em;
     text-align: right;
+    font-weight: bold;
 }
 .subheading {
     
