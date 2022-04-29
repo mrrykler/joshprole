@@ -16,13 +16,11 @@
           if(typeof e.originalEvent.detail == 'number' && e.originalEvent.detail !== 0) {
             if(e.originalEvent.detail > 0) {
               if (currentsect<maxsect) {currentsect++
-              console.log("#section"+currentsect)
               $('html, body').animate({
                     scrollTop: $("#section"+currentsect).offset().top
                 }, 1000);}
             } else if(e.originalEvent.detail < 0){
                 if (currentsect>1) {currentsect--
-                console.log("#section"+currentsect)
               $('html, body').animate({
                     scrollTop: $("#section"+currentsect).offset().top
                 }, 1000);
@@ -30,13 +28,11 @@
           } else if (typeof e.originalEvent.wheelDelta == 'number') {
             if(e.originalEvent.wheelDelta < 0) {
                 if (currentsect<maxsect) {currentsect++
-                console.log("#section"+currentsect)
               $('html, body').animate({
                     scrollTop: $("#section"+currentsect).offset().top
                 }, 1000);}
             } else if(e.originalEvent.wheelDelta > 0) {
                 if (currentsect>1) {currentsect--
-                console.log("#section"+currentsect)
               $('html, body').animate({
                     scrollTop: $("#section"+currentsect).offset().top
                 }, 1000);
