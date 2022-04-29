@@ -1,5 +1,5 @@
 body {
-    background-color: #eafaff;
+    background-color: #ffbeaa;
     font-family: Arial;
     overflow: hidden;
     margin: 0px;
@@ -28,7 +28,7 @@ body {
     background-color: #ffbeaa;
 }
 .section {
-    padding: 15% 25%;
+    padding: 15% 20%;
     left: 0px;
     top: 0;
     height: 100%;
