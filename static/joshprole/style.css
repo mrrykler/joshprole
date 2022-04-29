@@ -31,7 +31,8 @@ body {
     height: 100%;
 }
 .heading {
-    
+    font-size:3em;
+    text-align: right;
 }
 .subheading {
     
