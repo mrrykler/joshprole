@@ -9,9 +9,8 @@ body {
 #upper {
     position: sticky;
     top: 0;
-    bottom: 0;
-    width: 105%;
-    left: -1%;
+    width: 10%;
+    left: 0px;
     height: 5%;
     padding: 10;
     background-color: #ffcfaa;
