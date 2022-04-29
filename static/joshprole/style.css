@@ -1,10 +1,10 @@
-* {
-  margin: 0px;
-}
 body {
     background-color: #eafaff;
     font-family: Arial;
     overflow: hidden;
+    margin: 0px;
+    padding:  0px;
+    width: 100%;
 }
 #upper {
     position: sticky;
@@ -21,7 +21,7 @@ body {
     font-weight: bold;
 }
 #cent {
-    width: 100%;
+    width: inherit;
     left: 0px;
     padding: 0px;
     background-color: #ffbeaa;
@@ -31,7 +31,6 @@ body {
     left: 0px;
     top: 0;
     height: 100%;
-    width: inherit;
 }
 .heading {
     font-size:3em;
