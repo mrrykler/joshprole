@@ -21,6 +21,7 @@ body {
     font-weight: bold;
 }
 #cent {
+    position: absolute;
     width: 100%;
     left: 0px;
     padding: 0px;
