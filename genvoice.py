@@ -4,7 +4,6 @@ import datetime
 import json
 import re
 import os
-from tkinter import W
 from requests import get
 from bs4 import BeautifulSoup
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'joshprole.settings')
