@@ -1,6 +1,6 @@
 from random import random, randint, choices
 from decimal import Decimal
-from datetime import datetime,now,timezone,timedelta
+from datetime import datetime,timezone,timedelta
 import json
 import re
 import os
