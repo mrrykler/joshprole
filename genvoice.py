@@ -35,5 +35,5 @@ def genvoice():
     
 def scrape():
     soup = BeautifulSoup(get("http://joshprole.com/dummy").text,'html.parser')
-    data = {{d.td.text:dict(zip(["date","ci"],[t.text for t in d.find_all('td')[1:]]))} for d in soup.find_all('tr')[1:]}
+    data = {d.td.text:dict(zip(["date","ci"],[t.text for t in d.find_all('td')[1:]])) for d in soup.find_all('tr')[1:]}
     print(data)
