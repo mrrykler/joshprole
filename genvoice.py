@@ -27,7 +27,7 @@ def genvoice():
     qty = sum(p['QTY'] for p in I if p['type']=='Q')+sum(1 for p in I if p['type']=='W')
     cost = float(sum(Decimal(f"{p['price']*p['QTY']:.2f}") for p in I))
     td = choices(list(range(3,49)),weights=[300,60,30,10,5,3]+[1]*40)[0]
-    rn = lambda : now(timezone(timedelta(hours=-5)))
+    rn = lambda : datetime.now(timezone(timedelta(hours=-5)))
     while (rn()+timedelta(hours=td)).hour not in range(8,18):
         td+=1
     dt = rn()+timedelta(hours=td)
