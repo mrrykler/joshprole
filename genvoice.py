@@ -39,5 +39,5 @@ def scrape():
     for k in data:
         data[k]['itemcount'],data[k]['cost'] = re.findall(r"(\d+)/\$(\d+.\d+)",data[k]['ci'])[0]
         del data[k]['ci']
-        data[k]['date'] = str(datetime.datetime.strptime("%m/%d/%Y %I:00%p",data[k]['date'].upper()))
+        data[k]['date'] = str(datetime.datetime.strptime(data[k]['date'].upper(),"%m/%d/%Y %I:00%p"))
     return data
