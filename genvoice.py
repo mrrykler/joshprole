@@ -2,7 +2,11 @@ from random import random, randint, choices
 from decimal import Decimal
 import datetime
 import json
+import re
 import os
+from tkinter import W
+from requests import get
+from bs4 import BeautifulSoup
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'joshprole.settings')
 import django
 django.setup()
@@ -29,3 +33,8 @@ def genvoice():
     dt = rn()+datetime.timedelta(hours=td)
     Invoice.objects.create(cost=cost,odate=dt,purchase=json.dumps(I),slot=dt.hour,itemcount=qty)
     print(Invoice.objects.all().last())
+    
+def scrape():
+    soup = BeautifulSoup(get("http://joshprole.com/dummy").text,'html.parser')
+    data = {{d.td.text:dict(zip(["date","ci"],[t.text for t in d.find_all('td')[1:]]))} for d in soup.find_all('tr')[1:]}
+    print(data)
