@@ -1,6 +1,6 @@
 from random import random, randint, choices
 from decimal import Decimal
-import datetime
+from datetime import datetime,now,timezone,timedelta
 import json
 import re
 import os
@@ -10,6 +10,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'joshprole.settings')
 import django
 django.setup()
 from dummy.models import Invoice,Product
+
 
 PRODUCT_BUFFER = [i.todict() for i in Product.objects.all()]
 def genvoice():
@@ -26,18 +27,19 @@ def genvoice():
     qty = sum(p['QTY'] for p in I if p['type']=='Q')+sum(1 for p in I if p['type']=='W')
     cost = float(sum(Decimal(f"{p['price']*p['QTY']:.2f}") for p in I))
     td = choices(list(range(3,49)),weights=[300,60,30,10,5,3]+[1]*40)[0]
-    rn = lambda : datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-5)))
-    while (rn()+datetime.timedelta(hours=td)).hour not in range(8,18):
+    rn = lambda : now(timezone(timedelta(hours=-5)))
+    while (rn()+timedelta(hours=td)).hour not in range(8,18):
         td+=1
-    dt = rn()+datetime.timedelta(hours=td)
+    dt = rn()+timedelta(hours=td)
     Invoice.objects.create(cost=cost,odate=dt,purchase=json.dumps(I),slot=dt.hour,itemcount=qty)
     print(Invoice.objects.all().last())
     
+
 def scrape():
     soup = BeautifulSoup(get("http://joshprole.com/dummy").text,'html.parser')
     data = {d.td.text:dict(zip(["date","ci"],[t.text for t in d.find_all('td')[1:]])) for d in soup.find_all('tr')[1:]}
     for k in data:
         data[k]['itemcount'],data[k]['cost'] = re.findall(r"(\d+)/\$(\d+.\d+)",data[k]['ci'])[0]
         del data[k]['ci']
-        data[k]['date'] = str(datetime.datetime.strptime(data[k]['date'].upper(),"%m/%d/%Y %I:00%p"))
+        data[k]['date'] = str(datetime.strptime(data[k]['date'],"%m/%d/%Y %I:00%p"))
     return data
